@@ -1,9 +1,9 @@
 package com.example.demo.RateLimiter.Entity;
 
 public class User {
-    private String userId;
+    private Long userId;
     private UserTier tier;
-    public String getUserId(){
+    public Long getUserId(){
         return this.userId;
     }
     public UserTier getTier(){
