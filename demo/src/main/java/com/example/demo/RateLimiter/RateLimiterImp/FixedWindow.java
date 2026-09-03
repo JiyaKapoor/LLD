@@ -2,11 +2,12 @@ package com.example.demo.RateLimiter.RateLimiterImp;
 
 
 import com.example.demo.RateLimiter.Entity.Pair;
+import com.example.demo.RateLimiter.Entity.RateLimiter;
 import com.example.demo.RateLimiter.Entity.User;
 
 import java.util.HashMap;
 
-public class FixedWindow {
+public class FixedWindow implements RateLimiter {
     private Long windowSize;//(in sec)
     private int maxRequest;//in one discrete window
     HashMap<Long, Pair> userReq=new HashMap<>();
