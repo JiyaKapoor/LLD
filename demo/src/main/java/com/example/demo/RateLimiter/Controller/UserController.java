@@ -11,7 +11,7 @@ public class UserController {
     @Autowired
     private RateLimiterService rateLimiterService;
     @PostMapping
-    public void registerUser(UserTier userTier){
+    public void userRequest(Long userId,UserTier userTier){
 
     }
 }
