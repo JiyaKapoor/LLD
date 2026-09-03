@@ -11,9 +11,9 @@ public class SlidingWindow implements RateLimiter {
     private int maxRequests;
     private Long windowSize;
     private HashMap<Long, Deque<Long>> requestLog=new HashMap<>();
-    public boolean allowRequest(User user){
+    public boolean allowRequest(Long userId){
         //we need to first evict the requests that were made outside of the current window
-        Deque<Long> userRequestLog=requestLog.get(user.getUserId());
+        Deque<Long> userRequestLog=requestLog.get(userId);
         while(userRequestLog.peekFirst()<System.currentTimeMillis()-windowSize){
             //we need to evict the request kept at the peek of the array deque
             userRequestLog.pollFirst();

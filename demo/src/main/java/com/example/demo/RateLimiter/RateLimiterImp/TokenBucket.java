@@ -17,16 +17,16 @@ public class TokenBucket implements RateLimiter {
         this.maxTokens=maxToken;
         this.refillRate=refillRate;
     }
-    public boolean allowRequest(User user){
+    public boolean allowRequest(Long userId){
         //for this user we first need to check if there are any aval token left
-        Long lastRefill=refillTime.get(user.getUserId());
+        Long lastRefill=refillTime.get(userId);
         Long secElapsed=(System.currentTimeMillis()-lastRefill)/1000;
         Long currentTokens=Math.min(maxTokens,secElapsed*refillRate+avalTokens.get(user.getUserId()));
         if(currentTokens<=0){
             return false;
         }
-        refillTime.put(user.getUserId(),System.currentTimeMillis());
-        avalTokens.put(user.getUserId(),currentTokens);
+        refillTime.put(userId,System.currentTimeMillis());
+        avalTokens.put(userId,currentTokens);
         return true;
     }
 
