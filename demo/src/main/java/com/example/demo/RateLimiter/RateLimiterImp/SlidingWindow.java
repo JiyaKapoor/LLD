@@ -8,8 +8,8 @@ import java.util.HashMap;
 
 public class SlidingWindow implements RateLimiter {
     //in this algorithm we basically need to maintain a sliding window which keeps track of the requests made uptill n milisec ago
-    private int maxRequests;
-    private Long windowSize;
+    private int maxRequests=6;
+    private Long windowSize=60L;
     private HashMap<Long, Deque<Long>> requestLog=new HashMap<>();
     public boolean allowRequest(Long userId){
         //we need to first evict the requests that were made outside of the current window

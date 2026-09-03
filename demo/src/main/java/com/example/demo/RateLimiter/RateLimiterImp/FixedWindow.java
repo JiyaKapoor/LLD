@@ -6,8 +6,8 @@ import com.example.demo.RateLimiter.Entity.RateLimiter;
 import com.example.demo.RateLimiter.Entity.User;
 import java.util.HashMap;
 public class FixedWindow implements RateLimiter {
-    private Long windowSize;//(in sec)
-    private int maxRequest;//in one discrete window
+    private Long windowSize=60L;//(in sec)
+    private int maxRequest=6;//in one discrete window
     HashMap<Long, Pair> userReq=new HashMap<>();
     // [1:[windowStartTime,count]]
     public boolean allowRequest(Long userId){

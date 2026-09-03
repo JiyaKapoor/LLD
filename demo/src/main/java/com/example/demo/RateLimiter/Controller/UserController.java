@@ -19,6 +19,6 @@ public class UserController {
         if(res){
             return ResponseEntity.ok("Request Reached Server");
         }
-        return ResponseEntity.ok("Reqest Rate Limited, Try sometime later!");
+        return ResponseEntity.ok("Request Rate Limited, Try sometime later!");
     }
 }
