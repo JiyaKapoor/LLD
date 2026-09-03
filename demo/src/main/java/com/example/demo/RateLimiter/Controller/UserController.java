@@ -1,5 +1,6 @@
 package com.example.demo.RateLimiter.Controller;
 
+import com.example.demo.RateLimiter.Entity.User;
 import com.example.demo.RateLimiter.Entity.UserTier;
 import com.example.demo.RateLimiter.Service.RateLimiterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,6 @@ public class UserController {
     private RateLimiterService rateLimiterService;
     @PostMapping
     public void userRequest(Long userId,UserTier userTier){
-
+        rateLimiterService.allowRequest(userId,userTier);
     }
 }

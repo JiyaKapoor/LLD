@@ -17,9 +17,9 @@ public class RateLimiterService {
         registry.put(UserTier.FREE,new TokenBucket(10,4L));
         registry.put(UserTier.PREMIUM,new SlidingWindow());
     }
-    public boolean allowRequest(User user){
+    public boolean allowRequest(Long userId,UserTier userTier){
         // we first find out the limiter to which we need to route this request to
-        RateLimiter limiter=registry.get(user.getTier());
-        return limiter.allowRequest(user);
+        RateLimiter limiter=registry.get(userTier);
+        return limiter.allowRequest(userId);
     }
 }
