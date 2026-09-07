@@ -12,5 +12,17 @@ public class DeliveryPartnerManager {
     }
     public static DeliveryPartner assignPartner(Restaurant restaurant){
         //we assign the nearest delivery partner
+        double minDist=Double.MAX_VALUE;
+        DeliveryPartner suitablePartner=null;
+        for(DeliveryPartner deliveryPartner:deliveryPartners){
+            if(deliveryPartner.aval){
+                double currDist=(restaurant.x-deliveryPartner.x)+(restaurant.y- deliveryPartner.y);
+                if(currDist<minDist){
+                    minDist=currDist;
+                    suitablePartner=deliveryPartner;
+                }
+            }
+        }
+        return suitablePartner;
     }
 }

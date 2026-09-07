@@ -9,6 +9,6 @@ public class Restaurant {
     String name;
     String address;
     List<MenuItem> menu;
-    double x;
-    double y;
+    public double x;
+    public double y;
 }
