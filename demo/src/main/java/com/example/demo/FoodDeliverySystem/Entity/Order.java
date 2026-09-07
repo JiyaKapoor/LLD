@@ -25,6 +25,7 @@ public abstract class Order {
     }
     public void setStatus(String status){
         this.status=status;
+        notifyObservers();
     }
     public String getStatus(){
         return this.status;
