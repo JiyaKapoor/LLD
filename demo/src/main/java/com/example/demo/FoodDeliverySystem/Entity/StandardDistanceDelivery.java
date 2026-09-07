@@ -1,10 +1,13 @@
 package com.example.demo.FoodDeliverySystem.Entity;
 
 public class StandardDistanceDelivery implements DeliveryPricingStrategy{
-    public int perKmDelivery;
+    static public int perKmDelivery;
+    public void setPerKmDelivery(int perKmDelivery){
+        StandardDistanceDelivery.perKmDelivery =perKmDelivery;
+    }
     @Override
     public double computeDelivery(Restaurant restaurant,User user) {
-
-        return 0;
+        double distance= (restaurant.x- user.x)+(restaurant.y-user.y);
+        return distance*perKmDelivery;
     }
 }
