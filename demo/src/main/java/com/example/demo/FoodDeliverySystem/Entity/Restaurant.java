@@ -1,7 +1,9 @@
 package com.example.demo.FoodDeliverySystem.Entity;
 
-import java.util.List;
+import jakarta.persistence.Entity;
 
+import java.util.List;
+@Entity
 public class Restaurant {
     int id;
     String name;
