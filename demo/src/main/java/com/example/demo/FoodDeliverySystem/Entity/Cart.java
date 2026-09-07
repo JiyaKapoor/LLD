@@ -14,7 +14,7 @@ public class Cart {
             total+=menuItem.price;
         }
         //now we apply the delivery fees (Strategy design pattern)
-        total+= deliveryPricingStrategy.computeDelivery();
+        total+= deliveryPricingStrategy.computeDelivery(this.restaurant,this.user);
         //now we need to apply discount (if any)
         total-= discountStrategy.computeDiscount();
         return total;
