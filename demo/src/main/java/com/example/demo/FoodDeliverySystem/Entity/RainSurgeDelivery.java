@@ -1,8 +1,10 @@
 package com.example.demo.FoodDeliverySystem.Entity;
 
 public class RainSurgeDelivery implements DeliveryPricingStrategy{
+    static int perKmRainDelivery;
     @Override
     public double computeDelivery(Restaurant restaurant,User user){
-        return 0;
+        double dist=(restaurant.x-user.x)-(restaurant.y- user.y);
+        return dist*perKmRainDelivery;
     }
 }
