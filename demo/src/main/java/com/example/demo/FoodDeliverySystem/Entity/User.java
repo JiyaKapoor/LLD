@@ -4,9 +4,9 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class User {
-    int id;
-    String userName;
-    String address;
-    double x;
-    double y;
+    public int id;
+    public String userName;
+    public String address;
+    public double x;
+    public double y;
 }

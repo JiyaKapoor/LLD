@@ -3,11 +3,11 @@ package com.example.demo.FoodDeliverySystem.Entity;
 import java.util.List;
 
 public class Cart {
-    Restaurant restaurant;
-    User user;
-    List<MenuItem> cartItems;
-    DeliveryPricingStrategy deliveryPricingStrategy;
-    DiscountStrategy discountStrategy;
+    public Restaurant restaurant;
+    public User user;
+    public List<MenuItem> cartItems;
+    public DeliveryPricingStrategy deliveryPricingStrategy;
+    public DiscountStrategy discountStrategy;
     public double computeCartTotal(){
         double total=0;
         for(MenuItem menuItem:cartItems){
