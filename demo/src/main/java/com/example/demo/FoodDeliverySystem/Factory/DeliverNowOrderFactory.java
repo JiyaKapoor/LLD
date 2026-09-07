@@ -18,6 +18,7 @@ public class DeliverNowOrderFactory implements OrderFactory{
         order.price=price;
         DeliveryPartner deliveryPartner= DeliveryPartnerManager.assignPartner(order.getRestaurant());
         order.assignDeliveryPartner(deliveryPartner);
+        order.registerObserver(deliveryPartner);
         return order;
     }
 }

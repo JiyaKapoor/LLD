@@ -18,7 +18,12 @@ public class OrderManager {
         List<MenuItem> orderItems=cart.cartItems;
         double cartTotal= cart.computeCartTotal();
         Order order=orderFactory.createOrder(restaurant,user,orderItems,paymentStrategy,cartTotal);
+        order.registerObserver(restaurant);
+        order.registerObserver(user);//registering them as observers so they receive updates
+        order.setStatus("PLACED");
+        order.notifyObservers();
         currOrders.add(order);
         return order;
     }
+
 }

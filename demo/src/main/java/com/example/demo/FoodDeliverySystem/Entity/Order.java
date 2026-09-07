@@ -2,6 +2,7 @@ package com.example.demo.FoodDeliverySystem.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 public abstract class Order {
@@ -17,7 +18,17 @@ public abstract class Order {
     public List<MenuItem> orderItems;
     public PaymentStrategy paymentStrategy; // can be UPI/netBanking/Card etc
     public double price;
-
+    final List<OrderObserver> orderObservers=new ArrayList<>();
+    String status;
+    public void registerObserver(OrderObserver orderObserver){
+        orderObservers.add(orderObserver);
+    }
+    public void setStatus(String status){
+        this.status=status;
+    }
+    public String getStatus(){
+        return this.status;
+    }
     public User getUser() {
         return user;
     }
@@ -33,5 +44,10 @@ public abstract class Order {
     abstract String getType();
     public Restaurant getRestaurant(){
         return this.restaurant;
+    }
+    public void notifyObservers(){
+        for(OrderObserver orderObserver:orderObservers){
+            orderObserver.onOrderUpdate(this);
+        }
     }
 }
