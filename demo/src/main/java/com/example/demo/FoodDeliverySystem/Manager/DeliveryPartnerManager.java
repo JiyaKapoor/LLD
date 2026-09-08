@@ -1,11 +1,15 @@
 package com.example.demo.FoodDeliverySystem.Manager;
 
 import com.example.demo.FoodDeliverySystem.Entity.DeliveryPartner;
+import com.example.demo.FoodDeliverySystem.Entity.Order;
 import com.example.demo.FoodDeliverySystem.Entity.Restaurant;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class DeliveryPartnerManager {
+    @Autowired
+    OrderManager orderManager;
     static List<DeliveryPartner> deliveryPartners;
     public static void addDeliveryPartner(DeliveryPartner deliveryPartner){
         deliveryPartners.add(deliveryPartner);
@@ -24,5 +28,11 @@ public class DeliveryPartnerManager {
             }
         }
         return suitablePartner;
+    }
+    public void DeliverOrder(Order order){
+        orderManager.updateOrderStatus(order,"DELIVERED");
+    }
+    public void OnTheWayOrder(Order order){
+        orderManager.updateOrderStatus(order,"ON THE WAY");
     }
 }

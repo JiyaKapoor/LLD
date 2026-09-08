@@ -25,5 +25,8 @@ public class OrderManager {
         currOrders.add(order);
         return order;
     }
-
+    public void updateOrderStatus(Order order,String newStatus){
+        //we need to update the status of an order and send notification to all the observers who have subscribed to the Order class using observer design pattern
+        order.setStatus(newStatus);//this internally calls notify observer
+    }
 }
