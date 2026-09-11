@@ -20,4 +20,11 @@ public class Group{
         }
         return false;
     }
+    public void settlePayment(User userFrom,User userTo,double amt){
+        //money flows from userFrom--->userTo
+        //there are two cases
+        //one is of settling a debt
+        //other is that another debt is getting added
+
+    }
 }
