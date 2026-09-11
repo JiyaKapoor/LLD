@@ -4,5 +4,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface SplitStrategy {
-    public Map<User,Double> calculateSplit(double amount, List<User> participants,Map<User,Double> share);
+    public Map<User,Double> calculateSplit(double amount,User payer, List<User> participants,Map<User,Double> share);
 }

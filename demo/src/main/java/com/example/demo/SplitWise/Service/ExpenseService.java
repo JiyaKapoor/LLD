@@ -7,7 +7,6 @@ import com.example.demo.SplitWise.Entity.SplitStrategy;
 import com.example.demo.SplitWise.Entity.SplitType;
 import com.example.demo.SplitWise.Factory.SplitStrategyFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,7 @@ public class ExpenseService {
         //STEP 1: create the appropriate SplitStrategy object using the function parameters
         SplitStrategy splitStrategy=splitStrategyFactory.createSplit(splitType);
         // Now if we have an equal split in the function param-> equalsplitStrategy instance created
-        Map<User,Double> moneyOwed=splitStrategy.calculateSplit(amount,participants,share);
+        Map<User,Double> moneyOwed=splitStrategy.calculateSplit(amount,payer,participants,share);
         //now we update the balance map in the group
         Map<User,Map<User,Double>> balance=group.getBalanceMap();
         for(User user:moneyOwed.keySet()){
