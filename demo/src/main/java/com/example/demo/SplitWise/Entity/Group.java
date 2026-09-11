@@ -2,18 +2,22 @@ package com.example.demo.SplitWise.Entity;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Group{
     String groupId;
     List<User> users;
     String groupName;
-    HashMap<String,HashMap<String,Double>> balance;
+    Map<User,Map<User,Double>> balance;
+    public Map<User, Map<User,Double>> getBalanceMap(){
+        return this.balance;
+    }
     public void addUser(User user){
         this.users.add(user);
     }
     public boolean removeUser(User user){
         //this user can only leave if they have settled all the expenses
-        HashMap<String,Double> moneyOwed=balance.get(user.userId);
+        HashMap<User,Double> moneyOwed=balance.get(user);
         if(moneyOwed.isEmpty()){
             users.remove(user);
             return true;
