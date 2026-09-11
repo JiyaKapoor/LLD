@@ -3,10 +3,8 @@ package com.example.demo.FoodDeliverySystem.Manager;
 import com.example.demo.FoodDeliverySystem.Entity.*;
 import com.example.demo.FoodDeliverySystem.Factory.OrderFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-
 @Service
 public class OrderManager {
     //again a singleton class designed to manage orders
