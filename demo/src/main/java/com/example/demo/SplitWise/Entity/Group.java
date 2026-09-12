@@ -24,7 +24,7 @@ public class Group{
     }
     public boolean removeUser(User user){
         //this user can only leave if they have settled all the expenses
-        HashMap<User,Double> moneyOwed=balance.get(user);
+        Map<User,Double> moneyOwed=balance.get(user);
         if(moneyOwed.isEmpty()){
             users.remove(user);
             return true;
