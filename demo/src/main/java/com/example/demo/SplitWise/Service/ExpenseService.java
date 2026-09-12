@@ -14,7 +14,6 @@ import java.util.Map;
 public class ExpenseService {
     @Autowired
     SplitStrategyFactory splitStrategyFactory;
-    List<Expense> expenses;
     public void addExpense(List<User> participants, Group group,User payer, double amount, SplitType splitType, Map<User,Double> share){
         //STEP 1: create the appropriate SplitStrategy object using the function parameters
         SplitStrategy splitStrategy=splitStrategyFactory.createSplit(splitType);
