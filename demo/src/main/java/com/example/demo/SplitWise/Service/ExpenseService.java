@@ -30,5 +30,6 @@ public class ExpenseService {
             currAmt-=moneyOwed.get(user);//this much more money now user owes to payer
             currMap.put(payer,currAmt);//now it holds the updated owed money
         }
+        group.notifyObservers();
     }
 }
