@@ -2,7 +2,7 @@ package com.example.demo.BookMyShow.Entity;
 
 import java.util.List;
 
-public class Ticket {
+public class Ticket implements Bill{
     String ticketId;
     String theatreId;
     Show show;
@@ -17,4 +17,5 @@ public class Ticket {
     public double calcTicketPrice(){
         return ticketPricingStrategy.calcTicketPrice(seatsBooked,show);
     }
+
 }

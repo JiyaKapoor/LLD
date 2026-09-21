@@ -12,11 +12,11 @@ public class TicketService {
     SeatSelectionStrategyFactory seatSelectionStrategyFactory;
     @Autowired
     TicketPricingStrategyFactory ticketPricingStrategyFactory;
-    public void bookTicket(User user,String theatreId, Show show,int numTickets,String seatSelectionStrategy,String DayType){
+    public Ticket bookTicket(User user,String theatreId, Show show,int numTickets,String seatSelectionStrategy,String DayType){
         SeatSelectionStrategy selectionStrategy=seatSelectionStrategyFactory.createSelectionStrategy(seatSelectionStrategy);
         TicketPricingStrategy ticketPricingStrategy= ticketPricingStrategyFactory.createTicketPricingStrategy(DayType);
         List<Seat> bookedSeats=selectionStrategy.bookSeats(numTickets);
         Ticket ticket=new Ticket(theatreId,show,bookedSeats,ticketPricingStrategy);
-
+        return ticket;
     }
 }
