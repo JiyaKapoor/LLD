@@ -8,6 +8,12 @@ public class Ticket {
     Show show;
     List<Seat> seatsBooked;
     TicketPricingStrategy ticketPricingStrategy;
+    public Ticket(String theatreId,Show show,List<Seat> seatsBooked,TicketPricingStrategy ticketPricingStrategy){
+        this.theatreId=theatreId;
+        this.show=show;
+        this.seatsBooked=seatsBooked;
+        this.ticketPricingStrategy=ticketPricingStrategy;
+    }
     public double calcTicketPrice(){
         return ticketPricingStrategy.calcTicketPrice(seatsBooked,show);
     }
