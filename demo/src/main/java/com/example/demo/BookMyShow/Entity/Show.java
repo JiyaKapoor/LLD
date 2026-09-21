@@ -6,4 +6,5 @@ public class Show {
     String screenId;
     Long duration;
     Double rating;
+    Double baseShowPrice;
 }
