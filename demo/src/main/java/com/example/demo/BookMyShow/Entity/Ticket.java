@@ -9,6 +9,6 @@ public class Ticket {
     List<Seat> seatsBooked;
     TicketPricingStrategy ticketPricingStrategy;
     public double calcTicketPrice(){
-
+        return ticketPricingStrategy.calcTicketPrice(seatsBooked,show);
     }
 }
