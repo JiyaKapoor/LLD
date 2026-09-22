@@ -5,14 +5,14 @@ import java.util.List;
 
 public abstract class LogHandler {
     protected LogHandler next;
-    protected List<LogObserver> logObservers=new ArrayList<>();
+    protected List<LogObserver> logObservers=new ArrayList<>();//Every child class will have their own logOBserver list
     //It is good OOP practice to keep the repetitive code in the abtract class itself
     public void setNext(LogHandler next){
         this.next=next;
     }
     public void log(LogType logType,String message){
         if(canHandle(logType)){
-            handle(message);
+            notifyObservers(message);
         }
         else if(next!=null){
             //this handler cannot handle pass it down the chain
@@ -28,5 +28,4 @@ public abstract class LogHandler {
         }
     }
     abstract boolean canHandle(LogType logType);
-    abstract void handle(String message);
 }

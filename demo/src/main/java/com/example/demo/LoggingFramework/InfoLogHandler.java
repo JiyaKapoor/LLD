@@ -10,8 +10,4 @@ public class InfoLogHandler extends LogHandler{
         return false;
     }
 
-    @Override
-    void handle(String message) {
-        notifyObservers(message);
-    }
 }

@@ -6,8 +6,4 @@ public class DebugLogHandler extends LogHandler{
         return logType==LogType.DEBUG;
     }
 
-    @Override
-    void handle(String message) {
-        notifyObservers(message);
-    }
 }
