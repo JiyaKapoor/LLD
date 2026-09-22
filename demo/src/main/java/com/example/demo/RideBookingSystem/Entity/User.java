@@ -8,7 +8,7 @@ public class User implements Observer{
         return this.loc;
     }
     @Override
-    public void onUpdate(String message) {
-
+    public void onUpdate(TripStatus tripStatus) {
+        System.out.println("Your Trip is "+tripStatus);
     }
 }

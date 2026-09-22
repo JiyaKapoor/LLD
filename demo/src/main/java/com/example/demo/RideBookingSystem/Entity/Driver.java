@@ -16,7 +16,7 @@ public class Driver implements Observer{
         return this.location;
     }
     @Override
-    public void onUpdate(String message) {
+    public void onUpdate(TripStatus status) {
 
     }
 }
