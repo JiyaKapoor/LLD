@@ -8,5 +8,4 @@ public class AutomaticSelection implements SeatSelectionStrategy{
         List<Seat> seats=new ArrayList<>();
         return seats;
     }
-
 }

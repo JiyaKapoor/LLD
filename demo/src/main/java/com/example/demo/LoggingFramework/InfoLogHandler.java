@@ -1,0 +1,17 @@
+package com.example.demo.LoggingFramework;
+
+public class InfoLogHandler extends LogHandler{
+
+    @Override
+    boolean canHandle(LogType logType) {
+        if(logType==LogType.INFO){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    void handle(String message) {
+        System.out.println("[INFO]"+message);
+    }
+}
