@@ -12,6 +12,6 @@ public class InfoLogHandler extends LogHandler{
 
     @Override
     void handle(String message) {
-        System.out.println("[INFO]"+message);
+        notifyObservers(message);
     }
 }

@@ -8,6 +8,6 @@ public class DebugLogHandler extends LogHandler{
 
     @Override
     void handle(String message) {
-        System.out.println("[DEBUG]"+message);
+        notifyObservers(message);
     }
 }

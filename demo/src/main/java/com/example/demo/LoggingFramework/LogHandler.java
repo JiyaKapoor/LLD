@@ -1,10 +1,11 @@
 package com.example.demo.LoggingFramework;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class LogHandler {
     protected LogHandler next;
-    protected List<LogObserver> logObservers;
+    protected List<LogObserver> logObservers=new ArrayList<>();
     //It is good OOP practice to keep the repetitive code in the abtract class itself
     public void setNext(LogHandler next){
         this.next=next;
