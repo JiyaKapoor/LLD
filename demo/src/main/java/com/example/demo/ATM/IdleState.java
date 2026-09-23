@@ -21,10 +21,6 @@ public class IdleState implements ATMState{
     }
 
     @Override
-    public void depositCash(ATM atm, Card card) {
-
-    }
-    @Override
     public void ejectCard(ATM atm){
 
     }

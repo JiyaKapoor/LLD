@@ -24,10 +24,7 @@ public class hasCardState implements ATMState{
         System.out.println("User not authenticated yet");
     }
 
-    @Override
-    public void depositCash(ATM atm, Card card) {
-        System.out.println("User not authenticated yet");
-    }
+
     @Override
     public void ejectCard(ATM atm){
         System.out.print("Please collect your card");
