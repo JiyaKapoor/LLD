@@ -5,10 +5,11 @@ public class Card {
     String cardHolderName;
     int PIN;
     double balance;
-    public Card(String cardNumber,String cardHolderName,int PIN){
+    public Card(String cardNumber,String cardHolderName,int PIN,double balance){
         this.cardNumber=cardNumber;
         this.cardHolderName=cardHolderName;
         this.PIN=PIN;
+        this.balance=balance;
     }
     public boolean authenticate(int enteredPIN){
         return this.PIN==enteredPIN;

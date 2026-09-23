@@ -8,6 +8,7 @@ public class ATM {
         CashWithdrawalManager thousandHandler=new ThousandHandler(10);
         CashWithdrawalManager fiveHundredHandler=new FiveHundredHandler(50);
         thousandHandler.setNext(fiveHundredHandler);//chain formed
+        this.cashWithdrawalManager=thousandHandler;
     }
     public void setState(ATMState atmState){
         this.currState=atmState;
