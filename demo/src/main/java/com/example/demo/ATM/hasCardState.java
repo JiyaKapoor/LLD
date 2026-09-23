@@ -8,6 +8,7 @@ public class hasCardState implements ATMState{
     @Override
     public void enterPIN(ATM atm,Card card,int PIN){
         if(card.authenticate(PIN)){
+            System.out.println("User authenticated Successfully!");
             atm.setState(new AuthenticatedState());
         }
         else{
