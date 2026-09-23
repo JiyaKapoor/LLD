@@ -25,4 +25,8 @@ public class AuthenticatedState implements ATMState{
     public void depositCash(ATM atm, Card card) {
 
     }
+    @Override
+    public void ejectCard(ATM atm){
+        System.out.println("Please collect your card");
+    }
 }

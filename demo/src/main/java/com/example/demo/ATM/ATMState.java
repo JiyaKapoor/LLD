@@ -6,4 +6,5 @@ public interface ATMState {
     public void balanceInquiry(ATM atm,Card card);
     public void withdrawCash(ATM atm,Card card,double amount);
     public void depositCash(ATM atm,Card card);
+    public void ejectCard(ATM atm);
 }
