@@ -20,6 +20,7 @@ public class OrderService {
         double orderTotal=pricingStrategy.calculatePrice(cart);
         DarkStore srcDarkStore=darkStoreService.findBestDarkStore(cartItems,cart.getUser());
         DeliveryPartner assignedPartner= deliveryPartnerService.assignDeliveryPartner(srcDarkStore.getLoc());
+        assignedPartner.setStatus(DeliveryPartnerStatus.SERVING);
         Order order=new Order("ORDER: "+orderCnt,cart.getUser(),cartItems,orderTotal,assignedPartner);
         orderCnt+=1;
         return order;
