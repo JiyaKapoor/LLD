@@ -16,4 +16,10 @@ public class Cart {
         }
         return itemsSubtotal;
     }
+    public Map<Product,Integer> getCartItems(){
+        return this.cartItems;
+    }
+    public User getUser(){
+        return this.user;
+    }
 }

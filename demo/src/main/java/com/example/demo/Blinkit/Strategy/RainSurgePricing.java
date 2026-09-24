@@ -10,5 +10,4 @@ public class RainSurgePricing implements PricingStrategy{
     public double calculatePrice(Cart cart){
         return cart.itemsSubtotal()*rainSurgeMultiplier;
     }
-
 }
