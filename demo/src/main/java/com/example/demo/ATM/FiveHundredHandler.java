@@ -11,8 +11,10 @@ public class FiveHundredHandler extends CashWithdrawalManager{
         int notesTobeDispensed=Math.min(numNotes,notesReq);
         System.out.println("Dispensing "+notesTobeDispensed+" five hundred notes");
         double remainingAmt=amount-notesTobeDispensed*500;
+        this.numNotes-=notesTobeDispensed;
         if(remainingAmt>0){
-            this.next.dispense(remainingAmt);//forwarding the req down the chain
+            if(this.next!=null)this.next.dispense(remainingAmt);//forwarding the req down the chain
+            else System.out.println("Not Enough money in the ATM to be dispensed");
         }
     }
 }

@@ -20,6 +20,7 @@ public class AuthenticatedState implements ATMState{
     public void withdrawCash(ATM atm, Card card, double amount) {
         //VALIDATION STEP 1:
         if(card.getBalance()<amount){
+            System.out.println(card.getBalance());
             System.out.println("Insufficient Account Balance");
         }
         else{
