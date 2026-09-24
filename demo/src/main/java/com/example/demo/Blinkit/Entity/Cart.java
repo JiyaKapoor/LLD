@@ -5,6 +5,15 @@ import java.util.Map;
 public class Cart {
     String cartId;
     User user;
-    Map<Integer,Integer> cartItems;
-
+    Map<Product,Integer> cartItems;
+    public void addItem(Product product,int qty){
+        this.cartItems.put(product,this.cartItems.getOrDefault(product,0)+qty);
+    }
+    public double itemsSubtotal(){
+        double itemsSubtotal=0;
+        for(Product p:cartItems.keySet()){
+            itemsSubtotal+=p.price;
+        }
+        return itemsSubtotal;
+    }
 }
