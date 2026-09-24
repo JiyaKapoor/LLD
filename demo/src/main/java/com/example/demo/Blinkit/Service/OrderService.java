@@ -1,9 +1,6 @@
 package com.example.demo.Blinkit.Service;
 
-import com.example.demo.Blinkit.Entity.Cart;
-import com.example.demo.Blinkit.Entity.DeliveryPartner;
-import com.example.demo.Blinkit.Entity.Order;
-import com.example.demo.Blinkit.Entity.Product;
+import com.example.demo.Blinkit.Entity.*;
 import com.example.demo.Blinkit.Strategy.DeliveryPartnerMatchingStrategy;
 import com.example.demo.Blinkit.Strategy.PricingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +12,19 @@ public class OrderService {
     @Autowired
     PricingStrategy pricingStrategy;
     @Autowired
-    DeliveryPartnerMatchingStrategy deliveryPartnerMatchingStrategy;
+    DeliveryPartnerService deliveryPartnerService;
+    @Autowired
+    DarkStoreService darkStoreService;
     public Order placeOrder(Cart cart){
         Map<Product,Integer> cartItems=cart.getCartItems();
         double orderTotal=pricingStrategy.calculatePrice(cart);
-        DeliveryPartner assignedPartner= deliveryPartnerMatchingStrategy.assignDeliveryPartner();
+        DarkStore srcDarkStore=darkStoreService.findBestDarkStore(cartItems,cart.getUser());
+        DeliveryPartner assignedPartner= deliveryPartnerService.assignDeliveryPartner(srcDarkStore.getLoc());
         Order order=new Order("ORDER: "+orderCnt,cart.getUser(),cartItems,orderTotal,assignedPartner);
         orderCnt+=1;
         return order;
+    }
+    public void dispatchOrder(Order order){
+        //OBSERVER PATTERN
     }
 }
