@@ -23,9 +23,14 @@ public class OrderService {
         assignedPartner.setStatus(DeliveryPartnerStatus.SERVING);
         Order order=new Order("ORDER: "+orderCnt,cart.getUser(),cartItems,orderTotal,assignedPartner);
         orderCnt+=1;
+        order.setOrderState(new PreparingState());
         return order;
     }
     public void dispatchOrder(Order order){
         //OBSERVER PATTERN
+        order.setOrderState(new DispatchedState());
+    }
+    public void cancelOrder(Order order){
+        order.cancelOrder();
     }
 }
