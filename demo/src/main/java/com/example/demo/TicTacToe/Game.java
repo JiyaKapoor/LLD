@@ -7,6 +7,14 @@ public class Game {
     Player playerB;//can use a deque if more than two players allowed
     boolean gameOver;
     boolean flag;
+    public Game(Player A,Player B){
+        this.board=new Board();
+        this.rule=new StandardRule();
+        this.playerA=A;
+        this.playerB=B;
+        this.gameOver=false;
+        this.flag=true;
+    }
     public void play(){
         Scanner sc=new Scanner(System.in);
         while(!gameOver){
