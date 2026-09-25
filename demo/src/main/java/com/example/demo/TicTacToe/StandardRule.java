@@ -13,8 +13,8 @@ public class StandardRule implements Rule{
                     rowWin=false;
                     break;
                 }
-                if(rowWin)return true;
             }
+            if(rowWin && initChar!='_')return true;
         }
         //checking vertically
         for(int j=0;j<3;j++){
@@ -25,8 +25,8 @@ public class StandardRule implements Rule{
                     colWin=false;
                     break;
                 }
-                if(colWin)return true;
             }
+            if(colWin && initChar!='_')return true;
         }
         //checking diagonally(2 diagonals to check)
         int i=1;
@@ -41,7 +41,7 @@ public class StandardRule implements Rule{
             i++;
             j++;
         }
-        if(diagonalWin)return true;
+        if(diagonalWin && initChar!='_')return true;
         diagonalWin=true;
         i=2;
         j=0;
@@ -54,7 +54,7 @@ public class StandardRule implements Rule{
             i--;
             j++;
         }
-        if(diagonalWin)return true;
+        if(diagonalWin && initChar!='_')return true;
         return false;
     }
     @Override
