@@ -6,6 +6,11 @@ public class Cart {
     String cartId;
     User user;
     Map<Product,Integer> cartItems;
+    public Cart(String cartId,User user,Map<Product,Integer> cartItems){
+        this.cartId=cartId;
+        this.user=user;
+        this.cartItems=cartItems;
+    }
     public void addItem(Product product,int qty){
         this.cartItems.put(product,this.cartItems.getOrDefault(product,0)+qty);
     }
